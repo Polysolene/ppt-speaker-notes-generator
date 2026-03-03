@@ -52,10 +52,32 @@ DOUBAO_API_KEY=你的豆包API密钥
 
 ### 3. 运行脚本 | Run the Script
 
-1.  将你的图片版PPT文件放入项目目录，修改代码中的 `PPTX_PATH` 为你的文件名  
-    Place your image-only PPT in the project folder, update `PPTX_PATH` in code.
-2.  运行脚本：  
+1.  **修改核心配置项**（代码中大写变量名）：  
+    Modify core configuration items (uppercase variables in code):
+    - `PPTX_PATH`：填写你的图片版PPT文件路径（如 `BNCT_PPT.pptx`）  
+      Fill in your image-only PPT file path (e.g., `BNCT_PPT.pptx`).
+    - `START_SLIDE`：设置起始处理页码（默认1）  
+      Set the starting slide number (default 1).
+    - `API_SLEEP_TIME`：调整API调用间隔（免费版建议保留1秒）  
+      Adjust API call interval (recommend 1s for free tier).
+    - `append_mode`：设置备注为追加/覆盖模式（True/False）  
+      Set notes to append/overwrite mode (True/False).
+
+2.  **自定义Prompt（可选）**：  
+    Customize Prompt (optional):
+    - 找到代码中 `generate_speaker_note` 函数内的 `prompt` 字符串；  
+      Locate the `prompt` string in the `generate_speaker_note` function.
+    - 根据需求修改备注生成规则（如调整字数、分析深度、输出格式等）；  
+      Modify note generation rules (e.g., adjust word count, analysis depth, output format).
+    - 保持 `<notes>` 和 `<context_update>` 标签不变，仅修改标签内的提示逻辑。  
+      Keep `<notes>` and `<context_update>` tags unchanged, only modify the prompt logic inside.
+
+3.  **运行脚本**：  
     Run the script:
+    - 将你的图片版PPT文件放入项目目录；  
+      Place your image-only PPT in the project folder.
+    - 执行以下命令启动生成：  
+      Execute the following command to start generation:
 
 ```bash
 python ppt_notes_generator.py
@@ -113,5 +135,3 @@ This project is licensed under the **MIT License** - see [LICENSE](LICENSE) for 
 
 欢迎提交 Issue 和 Pull Request 来改进这个工具！  
 Contributions are welcome! Submit issues and PRs to improve this tool.
-
----
